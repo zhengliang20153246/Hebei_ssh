@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<constant name="struts.action.excludePattern" value="/static/.*?" />
+	
+	
+	<!-- 先配置包结构 -->
+	<package name="crm" extends="struts-default" namespace="/">
+	<!--当你把action的创建任务交给Spring时，class写的是Spring里面创建的id -->
+		<action name="admin_*" class="adminAction" method="{1}">
+			<result name="no" type="redirect">/login/login.jsp?status=1</result>
+			<result name="yes" type="redirect">/index/index.jsp</result>
+			<result name="userlistok" >/index/userlist.jsp</result>
+			<result name="userdeleteok" type="redirect">/admin_userlist.action?status=1</result>
+			<result name="quanxian" >/index/quanxian.jsp</result>
+		</action>
+		<action name="xuqiu_*" class="xuqiuAction" method="{1}">
+			<result name="tianbao" >/index/addneed.jsp</result>
+			<result name="addok" type="redirect">/xuqiu_tianbao.action?status=1</result>
+			<result name="hechalistok" >/index/needhecha.jsp</result>
+			<result name="shangchuangok">/index/needhecha.jsp?status=1</result>
+			<result name="deleteneedok">/index/needhecha.jsp?status=2</result>
+			<result name="liulanok">/index/needhechadetail.jsp</result>
+			<result name="needxiugaiok">/index/needhechadetail.jsp?status=1</result>
+			<result name="listok">/index/listneed.jsp</result>
+			<result name="searchok">/index/needdetail.jsp</result>
+			<result name="shenhelistok">/index/shenhe.jsp</result>
+			<result name="shenhedetailok">/index/shenhedetail.jsp</result>
+			<result name="tuihuiok">/index/shenhedetail.jsp?status=2</result>
+			<result name="passok">/index/shenhedetail.jsp?status=1</result>
+			<result name="tuihuiliulanok">/index/tuihuiliulan.jsp</result>
+			<result name="tuihuideleteok">/index/tuihuiliulan.jsp?status=1</result>
+			<result name="tuihuidetailok">/index/tuihuiliulandetail.jsp</result>
+			<result name="tongjiok">/jquery-css3-vote-bar-150326231418/NewFile1.jsp</result>
+	    </action>
+	    <action name="search_*" class="searchAction" method="{1}">
+	    	<result name="needjiansuook">/index/needsearch.jsp</result>
+	    </action>
+	    <action name="quanxian_*" class="quanxianAction" method="{1}">
+	    	
+	    </action>
+		
+	</package>
+    
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+
